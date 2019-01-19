@@ -12,7 +12,6 @@ import Foundation
 import Alamofire
 
 public enum NetworkDataSourceError : Error {
-    case DecodingError
     case RequestError
     case NetworkError
     case UnAuthorized
@@ -42,9 +41,8 @@ public class NetworkDataSource: NSObject {
     
     /// Securely prints the provided items in the console only if the app is build with the debug enabled.
     private func log(_ items: Any...){
-        #if DEBUG
+        guard Utils.isDebugEnabled() else {return}
         print(items)
-        #endif
     }
     
     private func prepareHeaders(additionalHeaders:HTTPHeaders?)->HTTPHeaders? {
@@ -71,13 +69,10 @@ public class NetworkDataSource: NSObject {
                         completionHandler(nil, responseDecoded)
                     }
                     else {
-                        completionHandler(NetworkDataSourceError.DecodingError, nil)
+                        completionHandler(NetworkDataSourceError.RequestError, nil)
                     }
                 case .failure (let error):
                     self.log("Request error: \(error)")
-                    if let data = response.data, let jsonData = try? JSONSerialization.jsonObject(with: data, options: [])  {
-                        self.log(jsonData)
-                    }
                     var customErrror : NetworkDataSourceError = NetworkDataSourceError.RequestError
                     if let errorCode = response.response?.statusCode {
                         if (errorCode == 401) {
@@ -97,11 +92,5 @@ public class NetworkDataSource: NSObject {
         }
     }
     
-    public func postRequest<T:Codable>(urlRequest : String, parameters:Parameters?, headers : HTTPHeaders?=nil, responseObject:T.Type, completionHandler: (@escaping (NetworkDataSourceError?, Codable?) -> Void)){
-        self.performRequest(method: .post, urlRequest: urlRequest, parameters: parameters, parametersEncoding: JSONEncoding.default, headers: self.prepareHeaders(additionalHeaders: headers), responseObject: responseObject) { (error, responseObject) in
-            self.log("[POST]\(urlRequest):",responseObject.debugDescription)
-            completionHandler(error,responseObject)
-        }
-    }
 }
 

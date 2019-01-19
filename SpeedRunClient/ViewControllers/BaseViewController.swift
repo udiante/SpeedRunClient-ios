@@ -23,7 +23,7 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        JustHUD.setBackgroundColor(color: UIColor.black, automaticTextColor: true)
+        JustHUD.setBackgroundColor(color: Constants.colors.defaultSecondaryColor, automaticTextColor: true)
         JustHUD.setLoaderColor(color: Constants.colors.defaultActiveColor)
         
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
@@ -49,6 +49,10 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     
     func hideHud(){
         JustHUD.shared.hide()
+    }
+    
+    open func configureUI(){
+    
     }
     
     

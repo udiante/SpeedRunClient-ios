@@ -67,6 +67,7 @@
 		A95F394D21F3A2C700707741 /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 		A95F394F21F3A34B00707741 /* GamesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesListViewModel.swift; sourceTree = "<group>"; };
 		A95F395321F3A47200707741 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A95F395521F3A58B00707741 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C47754C2A52849740F1D5FFA /* Pods-SpeedRunClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpeedRunClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpeedRunClientTests/Pods-SpeedRunClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB9977C848A184E3CC8CB1E /* Pods_SpeedRunClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpeedRunClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -115,6 +116,7 @@
 		A95F390421F39ECE00707741 = {
 			isa = PBXGroup;
 			children = (
+				A95F395521F3A58B00707741 /* README.md */,
 				A95F390F21F39ECE00707741 /* SpeedRunClient */,
 				A95F392421F39ED000707741 /* SpeedRunClientTests */,
 				A95F392F21F39ED000707741 /* SpeedRunClientUITests */,

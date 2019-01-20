@@ -1,8 +1,8 @@
-Master Build - [![Build Status](https://app.bitrise.io/app/e806d5aeebebbe0b/status.svg?token=E5xikD90Nzh4chd8JWDdEA)](https://app.bitrise.io/app/e806d5aeebebbe0b)
+# Build Status #
 
+[![Build Status](https://app.bitrise.io/app/e806d5aeebebbe0b/status.svg?token=E5xikD90Nzh4chd8JWDdEA)](https://app.bitrise.io/app/e806d5aeebebbe0b) | MASTER 
 <br>
-
-Develop Build: [![Build Status](https://app.bitrise.io/app/e806d5aeebebbe0b/status.svg?token=E5xikD90Nzh4chd8JWDdEA&branch=develop)](https://app.bitrise.io/app/e806d5aeebebbe0b)
+[![Build Status](https://app.bitrise.io/app/e806d5aeebebbe0b/status.svg?token=E5xikD90Nzh4chd8JWDdEA&branch=develop)](https://app.bitrise.io/app/e806d5aeebebbe0b) | DEVELOP 
 
 # KEY FEATURES #
 

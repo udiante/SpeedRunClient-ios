@@ -36,13 +36,6 @@ class JustHUD: UIView {
     }
     
     // MARK: Customizing methods
-    class func setHeaderColor(color: UIColor) {
-        shared.headerColor = color
-    }
-    
-    class func setFooterColor(color: UIColor) {
-        shared.footerColor = color
-    }
     
     class func setLoaderColor(color: UIColor) {
         shared.loaderColor = color
@@ -65,45 +58,14 @@ class JustHUD: UIView {
         self.frame = view.bounds
         setIndicator()
         
-        if let title = withHeader, !isCleanedStringEmpty(string: title) {
-            setTitleLabel(text: title)
-            titleLabel!.frame = CGRect(x: 0, y: 0, width: getLabelSize().width, height: getLabelSize().height)
-        }
-        
-        if let footer = andFooter, !isCleanedStringEmpty(string: footer) {
-            setFooterLabel(text: footer)
-            footerLabel!.frame = CGRect(x: 0, y: 0, width: getLabelSize().width, height: getLabelSize().height)
-        }
-        
         setBackGround(view: self)
-        
-        if let title = withHeader, !isCleanedStringEmpty(string: title) {
-            titleLabel!.frame.origin = getHeaderOrigin(view: backView!)
-            titleLabel?.adjustsFontSizeToFitWidth = true
-            backView?.addSubview(titleLabel!)
-        }
-        
-        if let footer = andFooter, !isCleanedStringEmpty(string: footer) {
-            footerLabel!.frame.origin = getFooterOrigin(view: backView!)
-            footerLabel?.adjustsFontSizeToFitWidth = true
-            backView?.addSubview(footerLabel!)
-        }
         
         progressIndicator?.frame.origin = getIndicatorOrigin(view: backView!, activityIndicatorView: progressIndicator!)
         backView?.addSubview(progressIndicator!)
         view.addSubview(self)
     }
     
-    // Show the loader added to the mentioned window with the provided title and footer texts
-    func showInWindow(window: UIWindow, withHeader title: String?, andFooter footer: String?) {
-        self.showInView(view: window, withHeader: title, andFooter: footer)
-    }
-    
-    // Show the loader added to the mentioned view with no title and footer texts
-    func showInView(view: UIView) {
-        self.showInView(view: view, withHeader: nil, andFooter: nil)
-    }
-    
+
     // Show the loader added to the mentioned window with no title and footer texts
     func showInWindow(window: UIWindow) {
         self.showInView(view: window, withHeader: nil, andFooter: nil)
@@ -118,10 +80,7 @@ class JustHUD: UIView {
             progressIndicator?.stopAnimating()
         }
     }
-    
-    var isActive: Bool {
-        return self.superview != nil
-    }
+
     
     // MARK: -Set view properties
     private func setBackGround(view: UIView) {
@@ -153,48 +112,19 @@ class JustHUD: UIView {
         progressIndicator?.startAnimating()
     }
     
-    private func setTitleLabel(text: String) {
-        if titleLabel?.superview != nil {
-            titleLabel?.removeFromSuperview()
-        }
-        titleLabel = UILabel()
-        titleLabel?.text = text
-        titleLabel?.font = self.boldFontWithFont(font: titleLabel?.font)
-        titleLabel?.textColor = headerColor
-        titleLabel?.textAlignment = .center
-    }
-    
-    private func setFooterLabel(text: String) {
-        if footerLabel?.superview != nil {
-            footerLabel?.removeFromSuperview()
-        }
-        footerLabel = UILabel()
-        footerLabel?.text = text
-        footerLabel?.textColor = footerColor
-        footerLabel?.textAlignment = .center
-    }
+
     
     // MARK: -Get Frame
     private func getBackGroundFrame(view: UIView) -> CGRect {
         let sideMargin: CGFloat = 20.0
-        var side = progressIndicator!.frame.height + sideMargin
+        let side = progressIndicator!.frame.height + sideMargin
         
-        if titleLabel?.text != nil && !isCleanedStringEmpty(string: (titleLabel?.text)!) {
-            side = progressIndicator!.frame.height + titleLabel!.frame.width
-        } else if footerLabel?.text != nil && !isCleanedStringEmpty(string: (footerLabel?.text)!) {
-            side = progressIndicator!.frame.height + footerLabel!.frame.width
-        }
         let originX = view.center.x - (side/2)
         let originY = view.center.y - (side/2)
         return CGRect(x: originX, y: originY, width: side, height: side)
     }
     
-    // MARK: Get Size
-    private func getLabelSize() -> CGSize {
-        let width = progressIndicator!.frame.width * 3
-        let height = progressIndicator!.frame.height / 1.5
-        return CGSize(width: width, height: height)
-    }
+
     
     // MARK: -Get Origin
     private func getIndicatorOrigin(view: UIView, activityIndicatorView indicator: UIActivityIndicatorView) -> CGPoint {
@@ -204,31 +134,7 @@ class JustHUD: UIView {
         return CGPoint(x: originX, y: originY)
     }
     
-    private func getHeaderOrigin(view: UIView) -> CGPoint {
-        let width = titleLabel!.frame.size.width
-        let originX = (view.bounds.width/2) - (width/2)
-        return CGPoint(x: originX, y: 1)
-    }
-    
-    private func getFooterOrigin(view: UIView) -> CGPoint {
-        let width = footerLabel!.frame.width
-        let height = footerLabel!.frame.height
-        let originX = (view.bounds.width/2) - (width/2)
-        let originY = view.frame.height - (height + 1)
-        return CGPoint(x: originX, y: originY)
-    }
-    
-    private func isCleanedStringEmpty(string: String) -> Bool {
-        let cleanString = string.trimmingCharacters(in: .whitespacesAndNewlines)
-        return cleanString.isEmpty
-    }
-    
-    // MARK: -Set Font
-    func boldFontWithFont(font: UIFont?) -> UIFont {
-        let fontDescriptor = font!.fontDescriptor.withSymbolicTraits(.traitBold)!
-        return UIFont(descriptor: fontDescriptor, size: font?.pointSize ?? 0.0)
-    }
-    
+
     // MARK: Colors
     /// get a complementary color to this color:
     private class func getComplementaryForColor(color: UIColor, relativeTo: UIColor) -> UIColor {

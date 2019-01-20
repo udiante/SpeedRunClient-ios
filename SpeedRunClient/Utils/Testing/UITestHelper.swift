@@ -9,7 +9,7 @@
 import Foundation
 import Mockingjay
 
-//INFO: - Si se tratara de una aplicacion con intención de ser publicada se crearía un nuevo target para los UITest que tendría la dependencia con Mockingjay y los JSON con las respuestas mockeadas para configurar cada entorno de pruebas.
+//INFO: - Si se tratara de una aplicacion con intención de ser publicada se crearía un nuevo target para los UITest que tendría la dependencia con 'Mockingjay' y los JSON con las respuestas mockeadas para configurar el entorno de pruebas. Así la dependencia del pod 'Mockingjay' ni los JSON de pruebas se añadirían al bundle publicado.
 class UITestHelper {
     static func configure(){
         guard isUITestActive() else {return}

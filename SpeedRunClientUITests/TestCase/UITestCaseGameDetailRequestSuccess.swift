@@ -45,7 +45,7 @@ class UITestCaseGameDetailRequestSuccess: XCTestCase {
 
         waitForElementToAppear(XCUIApplication().navigationBars["GameRun Detail"])
         
-        XCTAssert(tablesQuery.staticTexts["! Fishy !"].exists)
+        waitForElementToAppear(tablesQuery.staticTexts["! Fishy !"])
         XCTAssert(tablesQuery.staticTexts["3 hours 27 minutes 16 seconds"].exists)
         XCTAssert(tablesQuery.staticTexts["f1"].exists)
         XCTAssert(tablesQuery.staticTexts["Show video"].exists)

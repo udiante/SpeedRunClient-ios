@@ -30,9 +30,9 @@
             "submitted": "2016-05-29T00:31:08Z",
             "times": {
                 "primary": "PT7M15S",
-                "primary_t": 435,
+                "primary_t": 12436,
                 "realtime": "PT7M15S",
-                "realtime_t": 435,
+                "realtime_t": 12436,
                 "realtime_noloads": null,
                 "realtime_noloads_t": 0,
                 "ingame": null,

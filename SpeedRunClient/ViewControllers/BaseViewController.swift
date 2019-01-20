@@ -45,9 +45,6 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
         if let window = self.view.window ?? UIApplication.shared.windows.first {
             JustHUD.shared.showInWindow(window: window)
         }
-        else {
-            JustHUD.shared.showInView(view: self.view)
-        }
     }
     
     func hideHud(){
@@ -76,10 +73,6 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     func downloadEnded() {
         refreshControl.endRefreshing()
         hideHud()
-    }
-    
-    func isForceTouchAvailable()->Bool{
-        return self.traitCollection.forceTouchCapability == .available
     }
     
 }

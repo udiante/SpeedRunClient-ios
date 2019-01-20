@@ -46,11 +46,13 @@ class UITestCaseGameDetailRequestSuccess: XCTestCase {
         waitForElementToAppear(XCUIApplication().navigationBars["GameRun Detail"])
         
         XCTAssert(tablesQuery.staticTexts["! Fishy !"].exists)
-        XCTAssert(tablesQuery.staticTexts["7 minutes 15 seconds"].exists)
+        XCTAssert(tablesQuery.staticTexts["3 hours 27 minutes 16 seconds"].exists)
         XCTAssert(tablesQuery.staticTexts["f1"].exists)
         XCTAssert(tablesQuery.staticTexts["Show video"].exists)
         
     }
+    
+    
     
     func testGoToDetailVideo(){
         
@@ -62,15 +64,15 @@ class UITestCaseGameDetailRequestSuccess: XCTestCase {
         
         waitForElementToAppear(XCUIApplication().navigationBars["GameRun Detail"])
         
-        XCTAssert(tablesQuery.staticTexts["! Fishy !"].exists)
-        XCTAssert(tablesQuery.staticTexts["7 minutes 15 seconds"].exists)
+        waitForElementToAppear(tablesQuery.staticTexts["! Fishy !"])
+        XCTAssert(tablesQuery.staticTexts["3 hours 27 minutes 16 seconds"].exists)
         XCTAssert(tablesQuery.staticTexts["f1"].exists)
         XCTAssert(tablesQuery.staticTexts["Show video"].exists)
         
         tablesQuery.staticTexts["Show video"].tap()
         
         let safari = XCUIApplication(bundleIdentifier: "com.apple.mobilesafari")
-        safari.wait(for: .runningForeground, timeout: 20)
+        _ = safari.wait(for: .runningForeground, timeout: 30)
         XCUIApplication().activate()
         
         waitForElementToAppear(XCUIApplication().navigationBars["GameRun Detail"])

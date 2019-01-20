@@ -10,7 +10,7 @@
 - Code Coverage: 97,7%
 ![](docs/images/code_coverage.png)
 - Unitary Test, Functional Test and UITest.
-- Added to a Bitrise CI where all the test runs before all the MR (https://app.bitrise.io/app/e806d5aeebebbe0b)
+- Added to a Bitrise CI where all the test runs before all the Pull Requests (https://app.bitrise.io/app/e806d5aeebebbe0b)
 
 
 

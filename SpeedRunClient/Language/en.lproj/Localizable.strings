@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SpeedRunClient
+
+  Created by Alejandro Quibus on 20/01/2019.
+  Copyright © 2019 Alejandro Quibus. All rights reserved.
+*/
+
+"message_error_nointernet" = "No Internet connetion. Make sure that you have connection, then try again.";
+"message_error_request" = "There's a problem with your request.\n\nTry again later.";

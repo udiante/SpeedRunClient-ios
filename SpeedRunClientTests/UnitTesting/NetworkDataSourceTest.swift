@@ -66,7 +66,7 @@ class NetworkDataSourceTest: XCTestCase {
         let expect = expectation(description: "The download should fail")
         
         // Given: - We mock a request failure (404)
-        stub(everything, http(404))
+        stub(uri( "/test"), http(404))
         
         // When: - We perfom the request
         dataSource.getRequest(urlRequest: "http://test.com/test", parameters: nil, responseObject: TEST_MODEL.self) { (error, responseObject) in
@@ -84,7 +84,7 @@ class NetworkDataSourceTest: XCTestCase {
         let expect = expectation(description: "The download should fail")
         
         // Given: - We mock a request failure (404)
-        stub(everything, http(401))
+        stub(uri( "/test"), http(401))
         
         // When: - We perfom the request
         dataSource.getRequest(urlRequest: "http://test.com/test", parameters: nil, responseObject: TEST_MODEL.self) { (error, responseObject) in
@@ -97,10 +97,9 @@ class NetworkDataSourceTest: XCTestCase {
         waitForExpectations(timeout: defaultExpectationTimeOut, handler: nil)
     }
 
-    func testLocalizedString() {
-        XCTAssertEqual(NetworkDataSourceError.NetworkError.getLocalizedErrorDescription(), "No internet connection, try again later")
-        XCTAssertEqual(NetworkDataSourceError.RequestError.getLocalizedErrorDescription(), "Error, try again later")
-        XCTAssertEqual(NetworkDataSourceError.UnAuthorized.getLocalizedErrorDescription(), "Error, try again later")
-
+    func testLocalizedStringKeys() {
+        XCTAssertEqual(NetworkDataSourceError.NetworkError.getLocalizedErrorDescriptionKey(), "message_error_nointernet")
+        XCTAssertEqual(NetworkDataSourceError.RequestError.getLocalizedErrorDescriptionKey(), "message_error_request")
+        XCTAssertEqual(NetworkDataSourceError.UnAuthorized.getLocalizedErrorDescriptionKey(), "message_error_request")
     }
 }

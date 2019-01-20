@@ -12,7 +12,7 @@ For support, please feel free to contact me at https://www.linkedin.com/in/syeda
 */
 
 import Foundation
-struct GameResponse : Codable {
+struct GamesResponse : Codable {
 	let data : [GameData]?
 
 	enum CodingKeys: String, CodingKey {

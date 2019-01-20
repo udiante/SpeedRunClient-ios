@@ -7,8 +7,6 @@
 //
 
 import Foundation
-
-import Foundation
 import Alamofire
 
 public enum NetworkDataSourceError : Error {
@@ -16,12 +14,12 @@ public enum NetworkDataSourceError : Error {
     case NetworkError
     case UnAuthorized
     
-    func getLocalizedErrorDescription()->String {
+    func getLocalizedErrorDescriptionKey()->String {
         switch self {
         case .NetworkError:
-            return "No internet connection, try again later".localized()
+            return "message_error_nointernet"
         default:
-            return "Error, try again later".localized()
+            return "message_error_request"
         }
     }
 }

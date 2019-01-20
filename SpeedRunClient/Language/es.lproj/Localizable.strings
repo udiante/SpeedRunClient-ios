@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  SpeedRunClient
+
+  Created by Alejandro Quibus on 20/01/2019.
+  Copyright © 2019 Alejandro Quibus. All rights reserved.
+*/
+
+"message_error_nointernet" = "No hay conexión a internet. Prueba más tarde.";
+"message_error_request" = "Se ha producido un error al realizar tu solicitud.\n\nPrueba más tarde.";

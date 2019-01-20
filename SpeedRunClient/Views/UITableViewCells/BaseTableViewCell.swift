@@ -24,6 +24,7 @@ class BaseTableViewCell: UITableViewCell {
     open func configureUI(){
         self.selectionStyle = .none
         self.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        self.backgroundColor = Constants.colors.defaultBackgroundColor
     }
 
 }

@@ -51,9 +51,9 @@ class GameDetailViewModelTest: XCTestCase {
             guard let gameDetailViewModel = gameDetailViewModel else {return}
             XCTAssertEqual(gameDetailViewModel.getNumberOfCells(), 4)
             XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 0) as? GamesListGameCellViewModel)
-            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 1) as? GameDetailButtonCellViewModel)
+            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 1) as? GameDetailInfoCellViewModel)
             XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 2) as? GameDetailInfoCellViewModel)
-            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 3) as? GameDetailInfoCellViewModel)
+            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 3) as? GameDetailButtonCellViewModel)
 
             expectationEndDownlodad.fulfill()
         })
@@ -140,8 +140,8 @@ class GameDetailViewModelTest: XCTestCase {
             //Then: - Only the game and run info is displayed
             XCTAssertEqual(gameDetailViewModel.getNumberOfCells(), 3)
             XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 0) as? GamesListGameCellViewModel)
-            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 1) as? GameDetailButtonCellViewModel)
-            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 2) as? GameDetailInfoCellViewModel)
+            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 1) as? GameDetailInfoCellViewModel)
+            XCTAssertNotNil(gameDetailViewModel.getCell(atIndex: 2) as? GameDetailButtonCellViewModel)
             
             expectationEndDownlodad.fulfill()
         })

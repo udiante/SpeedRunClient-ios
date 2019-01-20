@@ -11,10 +11,10 @@
 "btn_retry" = "Retry";
 "nogames_description" = "No games founds";
 "title_games_vc" = "SpeedRun Games";
-"title_game_detail" = "Game Run Detail";
+"title_game_detail" = "GameRun Detail";
 "button_show_video" = "Show video";
-"hours_format" = "%i hours";
-"minutes_format" = "%i minutes";
+"hours_format" = "%i hours ";
+"minutes_format" = "%i minutes ";
 "seconds_format" = "%i seconds";
 "time_title" = "Speedrun time";
-"username_title" = "Username:";
+"username_title" = "Player Username";

@@ -13,8 +13,8 @@
 "title_games_vc" = "Listado juegos SpeedRun";
 "title_game_detail" = "Detalle Juego";
 "button_show_video" = "Ver vídeo";
-"hours_format" = "%i horas";
-"minutes_format" = "%i minutos";
+"hours_format" = "%i horas ";
+"minutes_format" = "%i minutos ";
 "seconds_format" = "%i segundos";
 "time_title" = "Tiempo Speedrun";
-"username_title" = "Usuario";
+"username_title" = "Alias del usuario";

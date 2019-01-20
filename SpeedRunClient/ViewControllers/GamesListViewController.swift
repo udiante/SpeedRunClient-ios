@@ -33,7 +33,7 @@ class GamesListViewController: BaseViewController {
                 
         gamesTableView.delegate = self
         gamesTableView.dataSource = self
-        
+
         gamesTableView.refreshControl = self.refreshControl
         
         gamesTableView.tableFooterView = UIView()
@@ -67,17 +67,17 @@ extension GamesListViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        if let cellEmptyStateVM = cellVM as? GamesListEmptyStateCellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.cellIdentifier) as? InfoTableViewCell {
+        if let cellEmptyStateVM = cellVM as? GamesListEmptyStateCellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.cellIdentifier, for: indexPath) as? InfoTableViewCell {
             cell.configure(emptyStateDescription: cellEmptyStateVM.textDescription, delegate: self)
             return cell
         }
         
-        if let cellErrorVM = cellVM as? GamesListErrorCellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.cellIdentifier) as? InfoTableViewCell {
+        if let cellErrorVM = cellVM as? GamesListErrorCellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.cellIdentifier, for: indexPath) as? InfoTableViewCell {
             cell.configure(cellVM: cellErrorVM, delegate: self)
             return cell
         }
         
-        if let gameCellVM = cellVM as? GamesListGameCellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.cellIdentifier) as? GameItemTableViewCell {
+        if let gameCellVM = cellVM as? GamesListGameCellViewModel, let cell = tableView.dequeueReusableCell(withIdentifier: cellVM.cellIdentifier, for: indexPath) as? GameItemTableViewCell {
             cell.configure(cellVM: gameCellVM)
             return cell
         }

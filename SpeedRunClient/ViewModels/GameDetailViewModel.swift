@@ -38,9 +38,6 @@ class GameDetailViewModel {
         
         // Runtime info
         if let runData = self.firstRunData {
-            if let videoURL = runData.videos?.links?.first?.uri {
-                cellsVM.append(GameDetailButtonCellViewModel(title: "button_show_video".localized(), buttonURL: videoURL))
-            }
             if let timeRun = runData.times?.realtime_t {
                 cellsVM.append(GameDetailInfoCellViewModel(title: Utils.formatSeconds(timeRun), subtitle: "time_title".localized()))
             }
@@ -51,6 +48,10 @@ class GameDetailViewModel {
             cellsVM.append(GameDetailInfoCellViewModel(title: userName, subtitle: "username_title".localized()))
         }
         
+        // Video Button
+        if let videoURL =  self.firstRunData?.videos?.links?.first?.uri {
+            cellsVM.append(GameDetailButtonCellViewModel(title: "button_show_video".localized(), buttonURL: videoURL))
+        }
     }
     
     // MARK: - Request
@@ -101,10 +102,9 @@ class GameDetailInfoCellViewModel: BaseCellViewModel {
     
     let title:String
     let subtitle:String?
-
     
     override var cellIdentifier: String! {
-        return ""
+        return "TitleSubtitleTableViewCell"
     }
     
     override var cellHeight: CGFloat? {
@@ -119,19 +119,20 @@ class GameDetailInfoCellViewModel: BaseCellViewModel {
 
 class GameDetailButtonCellViewModel: BaseCellViewModel {
     let title:String
-    let buttonActionUrl:String
+    let buttonActionUrl:URL?
     
     override var cellIdentifier: String! {
-        return ""
+        return "TitleSubtitleTableViewCell"
     }
     
     override var cellHeight: CGFloat? {
-        return 66
+        return UITableView.automaticDimension
     }
+    
     
     init(title:String, buttonURL:String){
         self.title = title
-        self.buttonActionUrl = buttonURL
+        self.buttonActionUrl = URL(string: buttonURL)
     }
     
 }

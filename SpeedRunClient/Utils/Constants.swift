@@ -17,4 +17,8 @@ struct Constants {
         static let highlightColor = UIColor.yellow
     }
     
+    struct assets {
+        static let imagePlaceHolder = UIImage(named: "ic_placeholder")
+    }
+    
 }

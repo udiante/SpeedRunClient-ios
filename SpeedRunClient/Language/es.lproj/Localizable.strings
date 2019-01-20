@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  SpeedRunClient
+
+  Created by Alejandro Quibus on 20/01/2019.
+  Copyright © 2019 Alejandro Quibus. All rights reserved.
+*/
+
+"message_error_nointernet" = "No hay conexión a internet.\n\nPrueba más tarde.";
+"message_error_request" = "Se ha producido un error al realizar tu solicitud.\n\nPrueba más tarde.";
+"btn_retry" = "Reintentar";
+"nogames_description" = "No se han encontrado juegos";
+"title_games_vc" = "Juegos SpeedRun";
+"title_game_detail" = "Detalle Juego";
+"button_show_video" = "Ver vídeo";
+"hours_format" = "%i horas ";
+"minutes_format" = "%i minutos ";
+"seconds_format" = "%i segundos";
+"time_title" = "Tiempo Speedrun";
+"username_title" = "Alias del usuario";

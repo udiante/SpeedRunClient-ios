@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol NetworkingViewProtocol {
-    func startDownload()
-    func stopDownload(withError error:NetworkDataSourceError?)
+protocol NetworkingViewProtocol: class {
+    func downloadStarted()
+    func downloadEnded()
 }
 
 class BaseViewController: UIViewController, NetworkingViewProtocol {
@@ -23,12 +23,14 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        JustHUD.setBackgroundColor(color: UIColor.black, automaticTextColor: true)
+        JustHUD.setBackgroundColor(color: Constants.colors.defaultSecondaryColor, automaticTextColor: true)
         JustHUD.setLoaderColor(color: Constants.colors.defaultActiveColor)
         
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         refreshControl.tintColor = UIColor.white
-        navigationItem.largeTitleDisplayMode = .automatic;
+        navigationItem.largeTitleDisplayMode = .automatic
+        
+        configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,16 +41,20 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     //MARK: - UI Methods
     
     func showHud(){
+        guard !refreshControl.isRefreshing else {return}
         if let window = self.view.window ?? UIApplication.shared.windows.first {
             JustHUD.shared.showInWindow(window: window)
-        }
-        else {
-            JustHUD.shared.showInView(view: self.view)
         }
     }
     
     func hideHud(){
         JustHUD.shared.hide()
+    }
+    
+    open func configureUI(){
+        self.navigationController?.navigationBar.barStyle = .black
+        self.view.backgroundColor = Constants.colors.defaultBackgroundColor
+        self.navigationController?.navigationBar.tintColor = Constants.colors.defaultActiveColor
     }
     
     
@@ -60,17 +66,13 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     }
     
     //MARK: - Networking protocol
-    func startDownload() {
+    func downloadStarted() {
         showHud()
     }
     
-    func stopDownload(withError error: NetworkDataSourceError?) {
+    func downloadEnded() {
         refreshControl.endRefreshing()
         hideHud()
-    }
-    
-    func isForceTouchAvailable()->Bool{
-        return self.traitCollection.forceTouchCapability == .available
     }
     
 }

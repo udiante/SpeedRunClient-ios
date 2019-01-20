@@ -11,8 +11,11 @@ import Mockingjay
 
 //INFO: - Si se tratara de una aplicacion con intención de ser publicada se crearía un nuevo target para los UITest que tendría la dependencia con Mockingjay y los JSON con las respuestas mockeadas para configurar cada entorno de pruebas.
 class UITestHelper {
-    static func configureStubs(){
+    static func configure(){
         guard isUITestActive() else {return}
+        
+        // Remove UIAnimations
+        UIView.setAnimationsEnabled(false)
         
         // ConfigureStubsLogic
         ProcessInfo.processInfo.environment.forEach { (arg) in

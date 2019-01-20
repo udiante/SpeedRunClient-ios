@@ -33,7 +33,7 @@ class UITestCaseGameRequestSuccess: XCTestCase {
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
     
-    func testGameListSuceed(){
+    func testGameListSucceed(){
         // GIVEN: - We have a valid /games response
         
         let tablesQuery = XCUIApplication().tables

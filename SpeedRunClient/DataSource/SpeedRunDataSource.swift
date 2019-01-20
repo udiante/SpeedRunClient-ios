@@ -35,5 +35,25 @@ class SpeedRunDataSource: NSObject {
             completionHandler(error,response as? GamesResponse)
         }
     }
+    
+    /**
+     Request to the SpeedRun API service the first page of Runs of the Game with the provided URI.
+     - Parameter completionHandler: Callback with the response or error.
+     */
+    static func getGameRuns(gameRunsURI:String, completionHandler: (@escaping (NetworkDataSourceError?, RunsResponse?) -> Void)) {
+        self.networkDataSource.getRequest(urlRequest: gameRunsURI, parameters: nil, responseObject: RunsResponse.self) { (error, response) in
+            completionHandler(error,response as? RunsResponse)
+        }
+    }
+    
+    /**
+     Request to the SpeedRun API service the details of a user given their URI.
+     - Parameter completionHandler: Callback with the response or error.
+     */
+    static func getUserDetail(userURI:String, completionHandler: (@escaping (NetworkDataSourceError?, UserResponse?) -> Void)) {
+        self.networkDataSource.getRequest(urlRequest: userURI, parameters: nil, responseObject: UserResponse.self) { (error, response) in
+            completionHandler(error,response as? UserResponse)
+        }
+    }
 
 }

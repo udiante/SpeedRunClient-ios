@@ -19,14 +19,17 @@ class GameListViewModel: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    
+    let gamesURL = TestEndPoints.games.rawValue
 
+    
     func testGamesDownload(){
         let gamesListViewModel = GamesListViewModel()
         let expectationStartDownload = expectation(description: "The download should start")
         let expectationEndDownlodad = expectation(description: "The download should end")
         
         // Given - We mock a valid "/games" response 
-        stub(uri("/api/v1/games"), jsonData(TestUtils.getJSON(withName: "gamesList")))
+        stub(uri(gamesURL), jsonData(TestUtils.getJSON(withName: "gamesList")))
         
         let networkDelegate = TestNetworkDelegate(downloadStartedHandler: {
             expectationStartDownload.fulfill()
@@ -52,7 +55,7 @@ class GameListViewModel: XCTestCase {
         let expectationEndDownlodad = expectation(description: "The download should end")
         
         // Given - We mock a 500 error in "/games" response
-        stub(uri("/api/v1/games"), http(500))
+        stub(uri(gamesURL), http(500))
         
         let networkDelegate = TestNetworkDelegate(downloadStartedHandler: {
             expectationStartDownload.fulfill()
@@ -76,7 +79,7 @@ class GameListViewModel: XCTestCase {
         let expectationEndDownlodad = expectation(description: "The download should end")
         
         // Given - We mock a "/games" response that doesn't have any data
-        stub(uri("/api/v1/games"), jsonData(TestUtils.getJSON(withName: "gamesListEmpty")))
+        stub(uri(gamesURL), jsonData(TestUtils.getJSON(withName: "gamesListEmpty")))
 
         let networkDelegate = TestNetworkDelegate(downloadStartedHandler: {
             expectationStartDownload.fulfill()
@@ -100,7 +103,7 @@ class GameListViewModel: XCTestCase {
         let expectationEndDownlodad = expectation(description: "The download should end")
         
         // Given - We mock a valid "/games" response
-        stub(uri("/api/v1/games"), jsonData(TestUtils.getJSON(withName: "gamesList")))
+        stub(uri(gamesURL), jsonData(TestUtils.getJSON(withName: "gamesList")))
         
         let networkDelegate = TestNetworkDelegate(downloadStartedHandler: {
             expectationStartDownload.fulfill()
@@ -132,7 +135,7 @@ class GameListViewModel: XCTestCase {
         let expectationEndDownlodad = expectation(description: "The download should end")
         
         // Given - We mock a valid "/games" response
-        stub(uri("/api/v1/games"), jsonData(TestUtils.getJSON(withName: "gamesList")))
+        stub(uri(gamesURL), jsonData(TestUtils.getJSON(withName: "gamesList")))
         
         let networkDelegate = TestNetworkDelegate(downloadStartedHandler: {
             expectationStartDownload.fulfill()

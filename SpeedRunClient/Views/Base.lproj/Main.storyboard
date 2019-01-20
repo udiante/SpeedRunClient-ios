@@ -40,6 +40,36 @@
             </objects>
             <point key="canvasLocation" x="992.79999999999995" y="33.733133433283363"/>
         </scene>
+        <!--Game Detail View Controller-->
+        <scene sceneID="O03-mP-AbY">
+            <objects>
+                <viewController storyboardIdentifier="GameDetailViewController" id="6Vu-ew-kYo" customClass="GameDetailViewController" customModule="SpeedRunClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jDb-Yd-jaP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LTJ-c8-VHv">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LTJ-c8-VHv" firstAttribute="leading" secondItem="jDb-Yd-jaP" secondAttribute="leading" id="ICr-gP-CX5"/>
+                            <constraint firstItem="LTJ-c8-VHv" firstAttribute="top" secondItem="qW2-fY-QS4" secondAttribute="top" id="WeK-uS-Lki"/>
+                            <constraint firstItem="qW2-fY-QS4" firstAttribute="bottom" secondItem="LTJ-c8-VHv" secondAttribute="bottom" id="kgt-K1-2rK"/>
+                            <constraint firstItem="qW2-fY-QS4" firstAttribute="trailing" secondItem="LTJ-c8-VHv" secondAttribute="trailing" id="nqR-yk-FFD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qW2-fY-QS4"/>
+                    </view>
+                    <connections>
+                        <outlet property="gameDetailTableView" destination="LTJ-c8-VHv" id="jVd-pw-lXU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wi-kp-tPb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="34"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="DEp-pf-XhX">
             <objects>

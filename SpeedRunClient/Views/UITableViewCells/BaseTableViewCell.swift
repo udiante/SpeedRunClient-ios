@@ -8,6 +8,12 @@
 
 import UIKit
 
+class BaseCellViewModel {
+    open private (set) var cellIdentifier: String!
+    open private (set) var cellHeight: CGFloat!
+    
+}
+
 class BaseTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
@@ -18,6 +24,7 @@ class BaseTableViewCell: UITableViewCell {
     open func configureUI(){
         self.selectionStyle = .none
         self.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+        self.backgroundColor = Constants.colors.defaultBackgroundColor
     }
 
 }

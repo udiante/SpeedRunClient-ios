@@ -15,10 +15,16 @@ class TestUtils {
         let data = try! Data(contentsOf: url)
         return data
     }
+    
+    static func partUri(_ uri: String) -> (_ request: URLRequest) -> Bool {
+        return { (_ request: URLRequest) in
+            return request.url?.path.contains(uri) ?? false
+        }
+    }
 }
 
 extension XCTestCase {
     var defaultExpectationTimeOut: Double {
-        return 2
+        return 5
     }
 }

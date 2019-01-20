@@ -16,4 +16,6 @@ enum UITestStubKeys: String {
 
 enum TestEndPoints: String {
     case games = "/api/v1/games"
+    case runs = "/api/v1/runs"
+    case users = "api/v1/users/"
 }

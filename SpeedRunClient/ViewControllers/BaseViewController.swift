@@ -57,6 +57,7 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     open func configureUI(){
         self.navigationController?.navigationBar.barStyle = .black
         self.view.backgroundColor = Constants.colors.defaultBackgroundColor
+        self.navigationController?.navigationBar.tintColor = Constants.colors.defaultActiveColor
     }
     
     

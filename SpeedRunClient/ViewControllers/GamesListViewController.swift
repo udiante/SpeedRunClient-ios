@@ -88,6 +88,13 @@ extension GamesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return viewModel.getCell(atIndex: indexPath.row)?.cellHeight ?? UITableView.automaticDimension
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cellVM = viewModel.getCell(atIndex: indexPath.row) as? GamesListGameCellViewModel else {return}
+        // Display the GameDetail info
+        let detailVC = GameDetailViewController.storyBoardInstance(withGameData: cellVM.gameModel)
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 
 extension GamesListViewController: InfoTableViewCellDelegate {

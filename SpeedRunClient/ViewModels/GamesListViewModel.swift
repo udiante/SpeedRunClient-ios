@@ -11,7 +11,7 @@ import UIKit
 class GamesListViewModel: NSObject {
     
     fileprivate var gamesList = [GameData]()
-    fileprivate (set) var cellsVM = [GamesListCellsViewModel]()
+    fileprivate (set) var cellsVM = [BaseCellViewModel]()
     
     func resetGamesList() {
         self.gamesList.removeAll()
@@ -24,8 +24,8 @@ class GamesListViewModel: NSObject {
         return cellsVM.count
     }
     
-    func getCell(atIndex index:Int)->GamesListCellsViewModel?{
-        guard index >= 0, index <= getNumberOfCells() else {return nil}
+    func getCell(atIndex index:Int)->BaseCellViewModel?{
+        guard index >= 0, index < getNumberOfCells() else {return nil}
         return self.cellsVM[index]
     }
     
@@ -62,14 +62,7 @@ class GamesListViewModel: NSObject {
     }
 }
 
-
-class GamesListCellsViewModel {
-    open private (set) var cellIdentifier: String!
-    open private (set) var cellHeight: CGFloat!
-
-}
-
-class GamesListGameCellViewModel: GamesListCellsViewModel {
+class GamesListGameCellViewModel: BaseCellViewModel {
     override var cellIdentifier: String! {
         return "GameItemTableViewCell"
     }
@@ -100,7 +93,7 @@ class GamesListGameCellViewModel: GamesListCellsViewModel {
     
 }
 
-class GamesListErrorCellViewModel: GamesListCellsViewModel {
+class GamesListErrorCellViewModel: BaseCellViewModel {
     override var cellIdentifier: String! {
         return "InfoTableViewCell"
     }
@@ -117,7 +110,7 @@ class GamesListErrorCellViewModel: GamesListCellsViewModel {
     }
 }
 
-class GamesListEmptyStateCellViewModel: GamesListCellsViewModel{
+class GamesListEmptyStateCellViewModel: BaseCellViewModel{
     override var cellIdentifier: String! {
         return "InfoTableViewCell"
     }

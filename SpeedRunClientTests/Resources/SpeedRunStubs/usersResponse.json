@@ -1,0 +1,53 @@
+{
+    "data": {
+        "id": "mkj9nw84",
+        "names": {
+            "international": "f1",
+            "japanese": null
+        },
+        "weblink": "https://www.speedrun.com/user/f1",
+        "name-style": {
+            "style": "gradient",
+            "color-from": {
+                "light": "#DAA520",
+                "dark": "#F0C03E"
+            },
+            "color-to": {
+                "light": "#DAA520",
+                "dark": "#F0C03E"
+            }
+        },
+        "role": "user",
+        "signup": "2014-07-10T17:10:03Z",
+        "location": null,
+        "twitch": {
+            "uri": "https://www.twitch.tv/forwarrd1"
+        },
+        "hitbox": null,
+        "youtube": {
+            "uri": "https://www.youtube.com/channel/UCjTFKSwN3CVJ_VrkHeb6Sww"
+        },
+        "twitter": null,
+        "speedrunslive": {
+            "uri": "http://www.speedrunslive.com/profiles/#!/forwarrd1"
+        },
+        "links": [
+            {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/users/mkj9nw84"
+            },
+            {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?user=mkj9nw84"
+            },
+            {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?moderator=mkj9nw84"
+            },
+            {
+                "rel": "personal-bests",
+                "uri": "https://www.speedrun.com/api/v1/users/mkj9nw84/personal-bests"
+            }
+        ]
+    }
+}

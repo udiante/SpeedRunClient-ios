@@ -8,6 +8,12 @@
 
 import UIKit
 
+class BaseCellViewModel {
+    open private (set) var cellIdentifier: String!
+    open private (set) var cellHeight: CGFloat!
+    
+}
+
 class BaseTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {

@@ -10,3 +10,4 @@
 "message_error_request" = "Se ha producido un error al realizar tu solicitud.\n\nPrueba más tarde.";
 "btn_retry" = "Reintentar";
 "nogames_description" = "No se han encontrado juegos";
+"title_games_vc" = "SpeedRun Games";

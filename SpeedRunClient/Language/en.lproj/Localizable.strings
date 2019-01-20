@@ -10,3 +10,4 @@
 "message_error_request" = "There's a problem with your request.\n\nTry again later.";
 "btn_retry" = "Retry";
 "nogames_description" = "No games founds";
+"title_games_vc" = "SpeedRun Games";

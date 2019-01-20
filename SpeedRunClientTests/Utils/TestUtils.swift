@@ -19,6 +19,6 @@ class TestUtils {
 
 extension XCTestCase {
     var defaultExpectationTimeOut: Double {
-        return 5
+        return 2
     }
 }

@@ -7,23 +7,28 @@
 //
 
 import UIKit
+import SDWebImage
 
-class GameItemTableViewCell: UITableViewCell {
+class GameItemTableViewCell: BaseTableViewCell {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var iconImageView: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
     
     fileprivate (set) var cellVM:GamesListGameCellViewModel?
     
+    override func configureUI() {
+        super.configureUI()
+    }
+    
     func configure(cellVM:GamesListGameCellViewModel){
         self.cellVM = cellVM
+        
+        self.iconImageView.image = Constants.assets.imagePlaceHolder
+        if let iconURL = cellVM.getIconImageURL() {
+            self.iconImageView.sd_setImage(with: iconURL)
+        }
+        
+        self.lblTitle.text = cellVM.getCellTitle()
+        
     }
 }

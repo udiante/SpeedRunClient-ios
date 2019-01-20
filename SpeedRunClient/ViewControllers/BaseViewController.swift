@@ -28,7 +28,9 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
         
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         refreshControl.tintColor = UIColor.white
-        navigationItem.largeTitleDisplayMode = .automatic;
+        navigationItem.largeTitleDisplayMode = .automatic
+        
+        configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +41,7 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     //MARK: - UI Methods
     
     func showHud(){
+        guard !refreshControl.isRefreshing else {return}
         if let window = self.view.window ?? UIApplication.shared.windows.first {
             JustHUD.shared.showInWindow(window: window)
         }
@@ -52,7 +55,8 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     }
     
     open func configureUI(){
-    
+        self.navigationController?.navigationBar.barStyle = .black
+        self.view.backgroundColor = Constants.colors.defaultBackgroundColor
     }
     
     

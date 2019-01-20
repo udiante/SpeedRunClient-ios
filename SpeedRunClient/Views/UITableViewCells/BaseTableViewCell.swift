@@ -12,7 +12,12 @@ class BaseTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.configureUI()
+    }
+    
+    open func configureUI(){
         self.selectionStyle = .none
+        self.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
     }
 
 }

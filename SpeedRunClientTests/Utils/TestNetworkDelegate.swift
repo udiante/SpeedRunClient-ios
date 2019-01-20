@@ -16,7 +16,7 @@ class TestNetworkDelegate: NetworkingViewProtocol {
     let downloadEndedHandler:(()->Void)?
 
     
-    init(downloadStartedHandler:(@escaping ()->Void), downloadEndedHandler downloadEndedHandler:(@escaping ()->Void)) {
+    init(downloadStartedHandler:(@escaping ()->Void), downloadEndedHandler:(@escaping ()->Void)) {
         self.downloadStartedHandler = downloadStartedHandler
         self.downloadEndedHandler = downloadEndedHandler
     }

@@ -9,11 +9,11 @@ target 'SpeedRunClient' do
   # Pods for SpeedRunClient
   pod 'Alamofire', '~> 4.7'
   pod 'SDWebImage', '~> 4.0'
+  pod 'Mockingjay'
 
   target 'SpeedRunClientTests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'Mockingjay'
   end
 
   target 'SpeedRunClientUITests' do

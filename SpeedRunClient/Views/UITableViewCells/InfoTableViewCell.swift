@@ -34,9 +34,9 @@ class InfoTableViewCell: BaseTableViewCell {
         }
     }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.buttonRetry.setTitle("btn_retry", for: .normal)
+    override func configureUI() {
+        super.configureUI()
+        self.buttonRetry.setTitle("btn_retry".localized(), for: .normal)
     }
     
     fileprivate (set) var status: InfoTableViewCellStatus = .EmptyState {
@@ -48,11 +48,13 @@ class InfoTableViewCell: BaseTableViewCell {
     func configure(cellVM:GamesListErrorCellViewModel, delegate:InfoTableViewCellDelegate){
         self.status = .Error
         self.lblDescription.text = cellVM.networkError.getLocalizedErrorDescriptionKey().localized()
+        self.delegate = delegate
     }
 
-    func configure(emptyStateDescription:String) {
+    func configure(emptyStateDescription:String, delegate:InfoTableViewCellDelegate) {
         self.status = .EmptyState
         self.lblDescription.text = emptyStateDescription
+        self.delegate = delegate
     }
     
     @IBAction func buttonPressed(_ sender: Any) {

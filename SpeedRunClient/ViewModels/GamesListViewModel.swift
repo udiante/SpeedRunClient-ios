@@ -64,12 +64,18 @@ class GamesListViewModel: NSObject {
 
 
 class GamesListCellsViewModel {
-    private (set) var cellIdentifier: String!
+    open private (set) var cellIdentifier: String!
+    open private (set) var cellHeight: CGFloat!
+
 }
 
 class GamesListGameCellViewModel: GamesListCellsViewModel {
     override var cellIdentifier: String! {
         return "GameItemTableViewCell"
+    }
+    
+    override var cellHeight: CGFloat! {
+        return 80
     }
     
     let gameModel:GameData
@@ -81,11 +87,26 @@ class GamesListGameCellViewModel: GamesListCellsViewModel {
     
     // MARK: - Cell UI Methods
     
+    func getIconImageURL()->URL? {
+        if let uri = gameModel.assets?.icon?.uri {
+            return URL(string: uri)
+        }
+        return nil
+    }
+    
+    func getCellTitle()->String? {
+        return gameModel.names?.international
+    }
+    
 }
 
 class GamesListErrorCellViewModel: GamesListCellsViewModel {
     override var cellIdentifier: String! {
         return "InfoTableViewCell"
+    }
+
+    override var cellHeight: CGFloat? {
+        return UITableView.automaticDimension
     }
     
     let networkError:NetworkDataSourceError
@@ -99,6 +120,10 @@ class GamesListErrorCellViewModel: GamesListCellsViewModel {
 class GamesListEmptyStateCellViewModel: GamesListCellsViewModel{
     override var cellIdentifier: String! {
         return "InfoTableViewCell"
+    }
+    
+    override var cellHeight: CGFloat? {
+        return UITableView.automaticDimension
     }
     
     let textDescription:String

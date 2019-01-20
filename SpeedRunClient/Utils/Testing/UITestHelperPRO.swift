@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Info: Esta clase es la que se ha añadido al Target de producción, el cual, no tiene los JSON con los mocks utilizados para las pruebas. En función del Scheme seleccionado al compilar el proyectos se añadirá este UITestHelper sin lógica o el otro.
 class UITestHelper {
     static func configure(){
         

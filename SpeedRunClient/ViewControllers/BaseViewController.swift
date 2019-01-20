@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol NetworkingViewProtocol {
-    func startDownload()
-    func stopDownload(withError error:NetworkDataSourceError?)
+protocol NetworkingViewProtocol: class {
+    func downloadStarted()
+    func downloadEnded()
 }
 
 class BaseViewController: UIViewController, NetworkingViewProtocol {
@@ -64,11 +64,11 @@ class BaseViewController: UIViewController, NetworkingViewProtocol {
     }
     
     //MARK: - Networking protocol
-    func startDownload() {
+    func downloadStarted() {
         showHud()
     }
     
-    func stopDownload(withError error: NetworkDataSourceError?) {
+    func downloadEnded() {
         refreshControl.endRefreshing()
         hideHud()
     }

@@ -6,5 +6,7 @@
   Copyright © 2019 Alejandro Quibus. All rights reserved.
 */
 
-"message_error_nointernet" = "No Internet connetion. Make sure that you have connection, then try again.";
+"message_error_nointernet" = "No Internet connetion.\n\nMake sure that you have connection, then try again.";
 "message_error_request" = "There's a problem with your request.\n\nTry again later.";
+"btn_retry" = "Retry";
+"nogames_description" = "No games founds";

@@ -10,7 +10,8 @@ import UIKit
 
 class GamesListViewController: BaseViewController {
     
-    let viewModel = GamesListViewModel()
+    @IBOutlet weak var gamesTableView: UITableView!
+    fileprivate let viewModel = GamesListViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()

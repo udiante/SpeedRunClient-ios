@@ -6,10 +6,13 @@
 
 # KEY FEATURES #
 
-- Developed using MVVM
+- MVVM
 - Code Coverage: 97,7%
 ![](docs/images/code_coverage.png)
-- Unitary Test, Functional Test and UITest.
+- Unit Test, Functional Test and UITest.
+- Two Targets: 
+    - <b>SpeedRunClient</b>: for development and Testing (the stub JSON files and the Helpers required for the UITesting are loaded in the bundle)
+    - <b>SpeedRunClientPRO</b>: for release, production and physical device testing.
 - Added to a Bitrise CI where all the test runs before all the Pull Requests (https://app.bitrise.io/app/e806d5aeebebbe0b)
 
 
@@ -17,7 +20,7 @@
 
 # PROJECT COMPATIBILITY #
 - Xcode 12.
-- iOS 12
+- iOS 12.
 - Cocoapod.
 
 ## External dependencies ##
